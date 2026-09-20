@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let isLetterOpen = false;
   let isPlaying = false;
   let currentVolume = 0.7; // Default 70%
-  const PASSCODE = "14";
+  const PASSCODE = "012205";
 
   // Elements
   const lockScreen = document.getElementById('lockScreen');
@@ -164,6 +164,22 @@ document.addEventListener('DOMContentLoaded', () => {
         checkPasscode();
       }
     });
+
+    input.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const pastedData = (e.clipboardData || window.clipboardData).getData('text').trim();
+      const digits = pastedData.replace(/\D/g, '').slice(0, pinInputs.length);
+      if (digits.length > 0) {
+        digits.split('').forEach((char, i) => {
+          if (pinInputs[i]) pinInputs[i].value = char;
+        });
+        if (digits.length === pinInputs.length) {
+          checkPasscode();
+        } else if (pinInputs[digits.length]) {
+          pinInputs[digits.length].focus();
+        }
+      }
+    });
   });
 
   if (unlockBtn) {
@@ -186,8 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let entered = "";
     pinInputs.forEach(input => entered += input.value);
     
-    // Accept either "14" or "1414"
-    if (entered.trim() === PASSCODE || entered.trim() === "1414" || entered.trim() === "14") {
+    if (entered.trim() === PASSCODE) {
       unlockWebsite();
     } else {
       if (pinErrorMessage) {

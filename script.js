@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close letter when clicking modal backdrop
   if (letterModal) {
     letterModal.addEventListener('click', (e) => {
-      if (e.target === letterModal) {
+      if (e.target === letterModal || e.target.id === 'letterCardWrapper') {
         closeLetter();
       }
     });

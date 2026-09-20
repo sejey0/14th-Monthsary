@@ -214,12 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) window.lucide.createIcons();
     }
 
-    // Play subtle unlock chime
-    initSynthAudio();
-    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-    playGentleBell(523.25);
-    setTimeout(() => playGentleBell(659.25), 150);
-
     setTimeout(() => {
       lockScreen.classList.add('opacity-0', 'pointer-events-none', 'transition-opacity', 'duration-700');
       setTimeout(() => {
@@ -334,17 +328,17 @@ document.addEventListener('DOMContentLoaded', () => {
         playPromise
           .then(() => {
             usingSynthFallback = false;
-            if (trackStatus) trackStatus.textContent = "Now Playing: Special Song for You";
+            if (trackStatus) trackStatus.textContent = "Arthur Miguel";
           })
           .catch((err) => {
-            console.log("No audio file found or autoplay blocked, activating ambient melody fallback:", err);
+            console.log("Autoplay prevented or audio file issue, activating ambient melody fallback:", err);
             startSynthMelody();
-            if (trackStatus) trackStatus.textContent = "Melody Playing (Add music.mp3 anytime)";
+            if (trackStatus) trackStatus.textContent = "Arthur Miguel (Tap to Play)";
           });
       }
     } else {
       startSynthMelody();
-      if (trackStatus) trackStatus.textContent = "Melody Playing (Add music.mp3 anytime)";
+      if (trackStatus) trackStatus.textContent = "Arthur Miguel";
     }
   }
 
@@ -433,8 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Check if audio file fails to load
   if (bgAudio) {
-    bgAudio.addEventListener('error', () => {
-      console.log("music.mp3 not found yet; fallback melody will play smoothly when opened.");
+    bgAudio.addEventListener('error', (e) => {
+      console.log("Audio load error:", e);
     });
   }
 

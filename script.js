@@ -559,4 +559,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateParticles();
   }
+
+  // -------------------------------------------------------------
+  // Fullscreen Photo Lightbox Popup Modal
+  // -------------------------------------------------------------
+  const photoLightboxModal = document.getElementById('photoLightboxModal');
+  const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  function openLightbox(src) {
+    if (!photoLightboxModal || !lightboxImg) return;
+    lightboxImg.src = src;
+
+    photoLightboxModal.classList.remove('hidden');
+    photoLightboxModal.classList.add('flex');
+    void photoLightboxModal.offsetWidth;
+    photoLightboxModal.classList.remove('opacity-0');
+    photoLightboxModal.classList.add('opacity-100');
+
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  function closeLightbox() {
+    if (!photoLightboxModal) return;
+    photoLightboxModal.classList.remove('opacity-100');
+    photoLightboxModal.classList.add('opacity-0');
+    setTimeout(() => {
+      photoLightboxModal.classList.add('hidden');
+      photoLightboxModal.classList.remove('flex');
+      if (lightboxImg) lightboxImg.src = '';
+    }, 300);
+  }
+
+  if (closeLightboxBtn) {
+    closeLightboxBtn.addEventListener('click', closeLightbox);
+  }
+
+  if (photoLightboxModal) {
+    photoLightboxModal.addEventListener('click', (e) => {
+      if (e.target === photoLightboxModal || e.target.id === 'photoLightboxBackdrop') {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Keyboard Escape listener
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (photoLightboxModal && !photoLightboxModal.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    }
+  });
+
+  // Attach click listeners to all polaroid cards with data-lightbox-src
+  document.querySelectorAll('[data-lightbox-src]').forEach(card => {
+    card.addEventListener('click', () => {
+      const src = card.getAttribute('data-lightbox-src');
+      if (src) openLightbox(src);
+    });
+  });
 });

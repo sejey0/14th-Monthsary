@@ -442,6 +442,35 @@
             <span>14 Months of Us</span>
           </span>
         </div>
+
+        <!-- Top 3 Keepsake Photo Cards (Featured Moments) -->
+        <div class="pt-1 pb-2">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <!-- Top Card 1 (Left) -->
+            <div class="polaroid-card transform -rotate-1 hover:rotate-0 transition-all duration-300 cursor-pointer group" data-lightbox-src="assets/images/IMG_20251016_172747_767 (1) (1).jpg">
+              <div class="washi-tape"></div>
+              <div class="polaroid-img-wrapper aspect-[4/3] bg-pink-50/70 overflow-hidden relative rounded">
+                <img src="assets/images/IMG_20251016_172747_767 (1) (1).jpg" alt="Photo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+              </div>
+            </div>
+
+            <!-- Top Card 2 (Center - as explicitly requested) -->
+            <div class="polaroid-card transform hover:rotate-0 transition-all duration-300 cursor-pointer group ring-2 ring-pink-400/50 shadow-lg" data-lightbox-src="assets/images/IMG_20251015_165640_604 (1) (1).jpg">
+              <div class="washi-tape washi-tape-center"></div>
+              <div class="polaroid-img-wrapper aspect-[4/3] bg-pink-50/70 overflow-hidden relative rounded">
+                <img src="assets/images/IMG_20251015_165640_604 (1) (1).jpg" alt="Photo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+              </div>
+            </div>
+
+            <!-- Top Card 3 (Right) -->
+            <div class="polaroid-card transform rotate-1 hover:rotate-0 transition-all duration-300 cursor-pointer group" data-lightbox-src="assets/images/IMG_20251016_172452_850 (1) (1).jpg">
+              <div class="washi-tape"></div>
+              <div class="polaroid-img-wrapper aspect-[4/3] bg-pink-50/70 overflow-hidden relative rounded">
+                <img src="assets/images/IMG_20251016_172452_850 (1) (1).jpg" alt="Photo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+              </div>
+            </div>
+          </div>
+        </div>
         
         <!-- Letter Paragraphs -->
         <div class="space-y-4 text-purple-950/90 leading-relaxed text-sm sm:text-base md:text-lg font-normal">
@@ -476,50 +505,26 @@
         <div class="pt-4">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
             <!-- Polaroid 1 -->
-            <div class="polaroid-card transform -rotate-2 hover:rotate-0 transition-all duration-300">
+            <div class="polaroid-card transform -rotate-2 hover:rotate-0 transition-all duration-300 cursor-pointer group" data-lightbox-src="assets/images/1.png">
               <div class="washi-tape"></div>
-              <div class="polaroid-img-wrapper">
-                <img src="assets/images/us.png" alt="Where our smiles began" class="w-full h-full object-cover">
-              </div>
-              <div class="text-center mt-3">
-                <span class="font-garamond italic text-sm text-purple-950 font-semibold block">
-                  "Where our smiles began"
-                </span>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-600/80 block mt-0.5">
-                  Memory One • Day 1
-                </span>
+              <div class="polaroid-img-wrapper aspect-[3/4] sm:aspect-square bg-pink-50/70 relative overflow-hidden rounded">
+                <img src="assets/images/1.png" alt="Photo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
               </div>
             </div>
 
             <!-- Polaroid 2 -->
-            <div class="polaroid-card transform rotate-2 hover:rotate-0 transition-all duration-300">
+            <div class="polaroid-card transform rotate-2 hover:rotate-0 transition-all duration-300 cursor-pointer group" data-lightbox-src="assets/images/2.png">
               <div class="washi-tape"></div>
-              <div class="polaroid-img-wrapper">
-                <img src="assets/images/Aesthetic Moodboard Heart Shape Frame Photo Collage.png" alt="Endless laughs & sweetness" class="w-full h-full object-cover">
-              </div>
-              <div class="text-center mt-3">
-                <span class="font-garamond italic text-sm text-purple-950 font-semibold block">
-                  "Endless laughs & sweetness"
-                </span>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-purple-600/80 block mt-0.5">
-                  Fourteen Months
-                </span>
+              <div class="polaroid-img-wrapper aspect-[3/4] sm:aspect-square bg-pink-50/70 relative overflow-hidden rounded">
+                <img src="assets/images/2.png" alt="Photo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
               </div>
             </div>
 
             <!-- Polaroid 3 -->
-            <div class="polaroid-card transform -rotate-1 hover:rotate-0 transition-all duration-300">
+            <div class="polaroid-card transform -rotate-1 hover:rotate-0 transition-all duration-300 cursor-pointer group" data-lightbox-src="assets/images/White and Black Simple Film Collage Phone Wallpaper.png">
               <div class="washi-tape"></div>
-              <div class="polaroid-img-wrapper">
-                <img src="assets/images/us.png" alt="And every month after" class="w-full h-full object-cover object-bottom">
-              </div>
-              <div class="text-center mt-3">
-                <span class="font-garamond italic text-sm text-purple-950 font-semibold block">
-                  "And every month after"
-                </span>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-600/80 block mt-0.5">
-                  To Forever
-                </span>
+              <div class="polaroid-img-wrapper aspect-[3/4] sm:aspect-square bg-pink-50/70 relative overflow-hidden rounded">
+                <img src="assets/images/White and Black Simple Film Collage Phone Wallpaper.png" alt="Photo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
               </div>
             </div>
           </div>
@@ -557,6 +562,25 @@
     </div>
   </div>
 </div>
+
+  <!-- ========================================================================= -->
+  <!-- 5. FULLSCREEN PHOTO LIGHTBOX POPUP MODAL                                  -->
+  <!-- ========================================================================= -->
+  <div id="photoLightboxModal" class="fixed inset-0 z-50 bg-[#0d0417]/95 backdrop-blur-xl hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-8 select-none">
+    <div id="photoLightboxBackdrop" class="absolute inset-0"></div>
+    
+    <!-- Close Fullscreen Button: Fixed in viewport corner, perfectly visible and never cut off -->
+    <button id="closeLightboxBtn" class="fixed top-4 right-4 sm:top-6 sm:right-6 md:top-7 md:right-7 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 hover:bg-white/35 text-white backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-200 hover:rotate-90 hover:scale-110 active:scale-95 shadow-2xl z-50 cursor-pointer" title="Close fullscreen preview">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center z-10 pointer-events-none">
+      <!-- Fullscreen Image Showcase -->
+      <div class="relative max-h-[88vh] max-w-full flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 bg-black/40 p-1 sm:p-2 pointer-events-auto">
+        <img id="lightboxImg" src="" alt="Full size photo preview" class="max-h-[84vh] max-w-[92vw] w-auto h-auto object-contain rounded-xl transition-transform duration-300">
+      </div>
+    </div>
+  </div>
 
   <footer class="relative z-10 w-full text-center py-4 text-xs text-pink-300/40">
   </footer>

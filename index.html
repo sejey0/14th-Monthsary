@@ -119,10 +119,13 @@
       <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/20">
         <i data-lucide="heart" class="w-5 h-5 text-white fill-white"></i>
       </div>
-      <div>
+      <div class="flex items-center gap-2">
         <h2 class="font-serif-display text-lg font-semibold text-white tracking-wide">
           Happy 14 monthsary lovelove
         </h2>
+        <button id="headerLockBtn" class="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 border border-pink-500/20 hover:border-pink-500/40 flex items-center justify-center text-pink-300 hover:text-white transition-all active:scale-95" title="Lock Screen">
+          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+        </button>
       </div>
     </div>
 
@@ -259,12 +262,17 @@
       </div>
     </div>
 
-    <!-- Clean Open Letter CTA Button -->
-    <div class="mt-8 flex flex-col items-center">
+    <!-- Clean Open Letter CTA Button & Lock Button -->
+    <div class="mt-8 flex flex-col items-center gap-3">
       <button id="openLetterBtn" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-pink-600 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium text-sm shadow-lg shadow-pink-500/25 flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95">
         <i data-lucide="mail-open" class="w-4 h-4"></i>
         <span>Read 14th Monthsary Letter</span>
         <i data-lucide="sparkles" class="w-4 h-4 text-pink-200"></i>
+      </button>
+
+      <button id="backToLockBtn" class="px-4 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-pink-500/20 hover:border-pink-500/40 text-xs text-pink-300 hover:text-white flex items-center gap-1.5 transition-all active:scale-95 shadow-xs" title="Lock Screen">
+        <i data-lucide="lock" class="w-3.5 h-3.5 text-pink-400"></i>
+        <span>Lock Screen</span>
       </button>
     </div>
 

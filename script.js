@@ -317,6 +317,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // -------------------------------------------------------------
+  // Lock Website / Return to Passcode Screen
+  // -------------------------------------------------------------
+  const backToLockBtn = document.getElementById('backToLockBtn');
+  const headerLockBtn = document.getElementById('headerLockBtn');
+
+  function lockWebsite() {
+    // 1. Pause music
+    pauseMusicPlayback();
+
+    // 2. If letter modal is open, close it
+    if (isLetterOpen) {
+      closeLetter();
+    }
+
+    // 3. Reset lock state
+    isUnlocked = false;
+
+    // 4. Clear PIN inputs
+    pinInputs.forEach(inp => inp.value = '');
+    if (pinErrorMessage) pinErrorMessage.classList.add('hidden');
+    if (hintText) hintText.classList.add('hidden');
+
+    // 5. Reset lock icon container
+    if (lockIconContainer) {
+      lockIconContainer.innerHTML = '<i data-lucide="lock" class="w-8 h-8 text-pink-300"></i>';
+    }
+
+    // 6. Smoothly restore lock screen overlay
+    lockScreen.style.display = 'flex';
+    void lockScreen.offsetWidth; // Force reflow
+    lockScreen.classList.remove('opacity-0', 'pointer-events-none');
+    lockScreen.classList.add('opacity-100');
+
+    if (window.lucide) window.lucide.createIcons();
+
+    // 7. Focus first PIN box
+    setTimeout(() => {
+      if (pinInputs[0]) pinInputs[0].focus();
+    }, 350);
+  }
+
+  if (backToLockBtn) backToLockBtn.addEventListener('click', lockWebsite);
+  if (headerLockBtn) headerLockBtn.addEventListener('click', lockWebsite);
+
+  // -------------------------------------------------------------
   // Music Player Controller
   // -------------------------------------------------------------
   function startMusicPlayback() {

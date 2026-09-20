@@ -494,23 +494,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------
-  // "14 Reasons" Accordion / Interactive Tabs
-  // -------------------------------------------------------------
-  const reasonCards = document.querySelectorAll('.reason-card');
-  reasonCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const detail = card.querySelector('.reason-detail');
-      const arrow = card.querySelector('.reason-arrow');
-      if (detail) {
-        detail.classList.toggle('hidden');
-      }
-      if (arrow) {
-        arrow.classList.toggle('rotate-180');
-      }
-    });
-  });
-
-  // -------------------------------------------------------------
   // Ambient Romantic Particle Canvas (Dreamy soft bokeh / stardust)
   // -------------------------------------------------------------
   const canvas = document.getElementById('ambientCanvas');

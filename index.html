@@ -39,8 +39,36 @@
 </head>
 <body class="bg-romantic-glow relative min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-pink-500 selection:text-white">
 
+  <!-- Envelope View Background Photo Tiled to 3 (us.png) -->
+  <div class="envelope-bg-wrapper">
+    <div class="envelope-tiled-grid">
+      <div class="envelope-tile">
+        <img 
+          src="assets/images/us.png" 
+          alt="Us" 
+          class="envelope-tile-img"
+        />
+      </div>
+      <div class="envelope-tile">
+        <img 
+          src="assets/images/us.png" 
+          alt="Us" 
+          class="envelope-tile-img"
+        />
+      </div>
+      <div class="envelope-tile">
+        <img 
+          src="assets/images/us.png" 
+          alt="Us" 
+          class="envelope-tile-img"
+        />
+      </div>
+    </div>
+    <div class="envelope-bg-overlay"></div>
+  </div>
+
   <!-- Ambient Particle Canvas for gentle floating sparkles -->
-  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-[1]"></canvas>
 
   <!-- Hidden HTML5 Audio Element for user's music file -->
   <audio id="bgAudio" src="assets/audio/Arthur Miguel - Bawat Taon  lyrics.mp3" preload="auto" loop></audio>
@@ -127,9 +155,10 @@
         </div>
       </div>
 
-      <h1 class="font-serif-display text-2xl md:text-3xl font-semibold text-white tracking-tight mb-2">
+      <h1 class="font-serif-display text-2xl md:text-3xl font-semibold text-white tracking-tight mb-1">
         Happy 14 monthsary Mommy
       </h1>
+      <span class="text-xs text-pink-200/80 font-medium tracking-wider block mb-2">September 15, 2026</span>
 
       <!-- Romantic Divider -->
       <div class="flex items-center justify-center gap-2 mb-6 opacity-70">
@@ -170,71 +199,24 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 2. TOP HEADER & FLOATING MUSIC PLAYER                                     -->
+  <!-- 2. TOP HEADER (CENTERED BRANDING)                                         -->
   <!-- ========================================================================= -->
-  <header class="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-4 flex flex-col md:flex-row items-center justify-between gap-4">
-    <!-- Brand / Ribbon Badge -->
+  <header class="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-4 flex items-center justify-center">
+    <!-- Centered Brand Title & Lock Button -->
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/20">
-        <i data-lucide="heart" class="w-5 h-5 text-white fill-white"></i>
+      <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-pink-500/20">
+        <i data-lucide="heart" class="w-4 h-4 text-white fill-white"></i>
       </div>
-      <div class="flex items-center gap-2">
-        <h2 class="font-serif-display text-lg font-semibold text-white tracking-wide">
-          Happy 14 monthsary Mommy
-        </h2>
-        <button id="headerLockBtn" class="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 border border-pink-500/20 hover:border-pink-500/40 flex items-center justify-center text-pink-300 hover:text-white transition-all active:scale-95" title="Lock Screen">
-          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Music Player Dock -->
-    <div class="glass-panel px-4 py-2.5 rounded-2xl flex items-center gap-3.5 border border-pink-500/20 shadow-lg">
-      <!-- Equalizer Visualizer -->
-      <div id="eqVisualizer" class="flex items-end gap-1 h-5 px-1 eq-paused" title="Audio Visualizer">
-        <span class="eq-bar"></span>
-        <span class="eq-bar"></span>
-        <span class="eq-bar"></span>
-        <span class="eq-bar"></span>
-      </div>
-
-      <!-- Track Information -->
-      <div class="flex flex-col min-w-[130px] max-w-[170px]">
-        <span class="text-[11px] font-semibold text-pink-200 truncate flex items-center gap-1">
-          <i data-lucide="music" class="w-3 h-3 text-pink-400"></i>
-          <span>Bawat Taon</span>
-        </span>
-        <span id="trackStatus" class="text-[10px] text-pink-300/70 truncate font-medium">
-          Arthur Miguel
-        </span>
-      </div>
-
-      <!-- Play / Pause Button -->
-      <button id="playPauseBtn" class="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 flex items-center justify-center text-white transition-transform active:scale-95 shadow-md shadow-pink-500/30" title="Play / Pause">
-        <span id="playPauseIcon">
-          <i data-lucide="play" class="w-4 h-4 text-white ml-0.5"></i>
-        </span>
-      </button>
-
-      <!-- Volume Controls -->
-      <div class="flex items-center gap-1.5 pl-2 border-l border-pink-500/20">
-        <!-- Volume Down -->
-        <button id="volumeDownBtn" class="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-pink-300 hover:text-white transition-colors" title="Volume Down">
-          <i data-lucide="minus" class="w-3 h-3"></i>
-        </button>
-
-        <!-- Volume Icon -->
-        <span id="volumeIcon" class="flex items-center text-pink-300">
-          <i data-lucide="volume-2" class="w-4 h-4"></i>
-        </span>
-
-        <!-- Volume Slider -->
-        <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.7" class="w-16 cursor-pointer accent-pink-500" title="Adjust Volume">
-
-        <!-- Volume Up -->
-        <button id="volumeUpBtn" class="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-pink-300 hover:text-white transition-colors" title="Volume Up">
-          <i data-lucide="plus" class="w-3 h-3"></i>
-        </button>
+      <div class="flex flex-col items-center">
+        <div class="flex items-center gap-2">
+          <h2 class="font-serif-display text-xl sm:text-2xl font-semibold text-white tracking-wide text-center">
+            Happy 14 monthsary Mommy
+          </h2>
+          <button id="headerLockBtn" class="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 border border-pink-500/20 hover:border-pink-500/40 flex items-center justify-center text-pink-300 hover:text-white transition-all active:scale-95" title="Lock Screen">
+            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+        <span class="text-xs text-pink-200/75 font-medium tracking-wider mt-0.5">September 15, 2026</span>
       </div>
     </div>
   </header>
@@ -255,16 +237,13 @@
         <div id="envelopeLetter" class="envelope-inner-letter">
           <div class="h-full flex flex-col justify-between p-4 sm:p-5 font-garamond text-[13px] sm:text-[14px] leading-relaxed text-purple-950 select-none">
             <div>
-              <p class="font-bold text-pink-950 font-serif-display text-sm tracking-wide mb-1">
-                Dearest Mommy,
-              </p>
-              <p class="italic text-purple-950/80 line-clamp-3">
+              <p class="italic text-purple-950/85 font-garamond leading-relaxed line-clamp-3">
                 Happy 14th monthsary! It feels surreal that we have already shared 14 beautiful months together. Every single day has been filled with comfort, genuine laughter, and memories that I treasure deeply in my heart...
               </p>
             </div>
             
             <div class="pt-2 border-t border-pink-200/50 flex items-center justify-between text-xs text-pink-800/80">
-              <span class="italic font-garamond text-xs">With all my love, forever & always</span>
+              <span class="italic font-garamond text-xs font-semibold text-pink-900/80">September 15, 2026</span>
               <span class="text-[10px] font-sans uppercase font-bold tracking-widest text-pink-600 flex items-center gap-1">
                 <i data-lucide="sparkles" class="w-3 h-3 text-pink-500"></i>
                 <span>Open Letter</span>
@@ -325,7 +304,7 @@
     <div class="mt-8 flex flex-col items-center gap-3">
       <button id="openLetterBtn" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-pink-600 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium text-sm shadow-lg shadow-pink-500/25 flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95">
         <i data-lucide="mail-open" class="w-4 h-4"></i>
-        <span>Read 14th Monthsary Letter</span>
+        <span>Open</span>
         <i data-lucide="sparkles" class="w-4 h-4 text-pink-200"></i>
       </button>
 
@@ -340,332 +319,220 @@
   <!-- ========================================================================= -->
   <!-- 4. MODAL / EXPANDED LETTER EXPERIENCE                                     -->
   <!-- ========================================================================= -->
-  <div id="letterModal" class="fixed inset-0 z-40 bg-[#0d0417]/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-500 items-center justify-center p-3 sm:p-6 overflow-y-auto">
-    <div class="letter-parchment w-full max-w-2xl my-auto p-6 sm:p-10 md:p-12 relative shadow-2xl transition-all max-h-[92vh] overflow-y-auto custom-scrollbar border border-pink-200">
+
+  <div id="letterModal" class="fixed inset-0 z-40 bg-[#0d0417]/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-500 items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto">
+    <div class="letter-parchment w-full max-w-5xl my-auto p-6 sm:p-10 md:p-12 lg:p-14 relative shadow-2xl transition-all max-h-[92vh] overflow-y-auto custom-scrollbar">
       
+      <!-- Four Vintage Corner Filigree Accents -->
+      <svg class="corner-ornament corner-tl" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 36V16C4 9.373 9.373 4 16 4H36" stroke-linecap="round"/>
+        <path d="M9 36V20C9 13.925 13.925 9 20 9H36" stroke-linecap="round" stroke-dasharray="2 2"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+      <svg class="corner-ornament corner-tr" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 36V16C4 9.373 9.373 4 16 4H36" stroke-linecap="round"/>
+        <path d="M9 36V20C9 13.925 13.925 9 20 9H36" stroke-linecap="round" stroke-dasharray="2 2"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+      <svg class="corner-ornament corner-bl" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 36V16C4 9.373 9.373 4 16 4H36" stroke-linecap="round"/>
+        <path d="M9 36V20C9 13.925 13.925 9 20 9H36" stroke-linecap="round" stroke-dasharray="2 2"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+      <svg class="corner-ornament corner-br" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 36V16C4 9.373 9.373 4 16 4H36" stroke-linecap="round"/>
+        <path d="M9 36V20C9 13.925 13.925 9 20 9H36" stroke-linecap="round" stroke-dasharray="2 2"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+      </svg>
+
       <!-- Top Close Button -->
-      <button id="closeLetterBtn" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-pink-100/80 hover:bg-pink-200 text-purple-900 flex items-center justify-center transition-colors shadow-sm" title="Fold back into envelope">
+      <button id="closeLetterBtn" class="absolute top-5 right-5 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-pink-100/90 hover:bg-pink-200 text-purple-900 flex items-center justify-center transition-all hover:rotate-90 shadow-sm z-20" title="Fold back into envelope">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <!-- Letter Header with Romantic Crest -->
+      <!-- Letter Header with Romantic Monogram & Music Player Dock -->
       <div class="text-center pb-6 border-b border-pink-300/40 relative">
-        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 mb-3 shadow-inner">
-          <i data-lucide="heart" class="w-6 h-6 fill-pink-500 text-pink-500"></i>
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 text-white mb-2 shadow-lg shadow-pink-500/25 ring-4 ring-pink-100">
+          <i data-lucide="heart" class="w-6 h-6 fill-white text-white"></i>
         </div>
 
-        <div class="flex items-center justify-center gap-2 text-xs tracking-widest text-pink-700 font-semibold uppercase mb-1">
+        <!-- Romantic Filigree Line & Date -->
+        <div class="flex items-center justify-center gap-3 my-2 text-pink-400/80">
+          <span class="h-[1px] w-12 sm:w-24 bg-gradient-to-r from-transparent to-pink-300"></span>
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-pink-500"></i>
-          <span>Fourteenth Month Milestone</span>
+          <span class="text-xs uppercase tracking-widest font-semibold text-pink-700/80">Mommy &amp; CJay • September 15, 2026</span>
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-pink-500"></i>
+          <span class="h-[1px] w-12 sm:w-24 bg-gradient-to-l from-transparent to-pink-300"></span>
         </div>
 
-        <h1 class="font-serif-display text-2xl sm:text-3xl md:text-4xl font-bold text-purple-950 tracking-tight">
-          Happy 14 monthsary Mommy
-        </h1>
+        <!-- Music Player Dock inside Letter -->
+        <div class="mt-3 flex justify-center">
+          <div class="w-full max-w-xl px-4 sm:px-6 py-2.5 rounded-2xl flex items-center justify-between gap-3 sm:gap-4 border border-pink-500/30 shadow-xl bg-gradient-to-r from-[#1b062c] via-[#2a0b3e] to-[#1b062c] text-white select-none">
+            
+            <div class="flex items-center gap-3">
+              <!-- Equalizer Visualizer -->
+              <div id="eqVisualizer" class="flex items-end gap-1 h-5 px-1 eq-paused" title="Audio Visualizer">
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+              </div>
 
-        <p class="font-garamond italic text-base sm:text-lg text-pink-800/80 mt-1">
-          "Every day with you is my favorite story."
-        </p>
+              <!-- Track Information -->
+              <div class="flex flex-col min-w-[110px] max-w-[160px] text-left">
+                <span class="text-xs font-semibold text-pink-300 truncate flex items-center gap-1.5">
+                  <i data-lucide="music" class="w-3.5 h-3.5 text-pink-400"></i>
+                  <span id="trackTitle">Bawat Taon</span>
+                </span>
+                <span id="trackStatus" class="text-[10px] text-pink-200/70 truncate font-light">
+                  Music Paused
+                </span>
+              </div>
+            </div>
+
+            <!-- Center: Play / Pause Button -->
+            <button id="playPauseBtn" class="w-9 h-9 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 flex items-center justify-center text-white transition-transform active:scale-95 shadow-md shadow-pink-500/30 flex-shrink-0" title="Play / Pause">
+              <span id="playPauseIcon">
+                <i data-lucide="play" class="w-4 h-4 text-white ml-0.5 fill-white"></i>
+              </span>
+            </button>
+
+            <!-- Volume Controls -->
+            <div class="flex items-center gap-1.5 pl-2.5 border-l border-pink-500/25">
+              <!-- Volume Down -->
+              <button id="volumeDownBtn" class="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-pink-300 hover:text-white transition-colors" title="Volume Down">
+                <i data-lucide="minus" class="w-3 h-3"></i>
+              </button>
+
+              <!-- Volume Icon -->
+              <span id="volumeIcon" class="flex items-center text-pink-300">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </span>
+
+              <!-- Volume Slider -->
+              <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.7" class="w-16 sm:w-24 cursor-pointer accent-pink-500" title="Adjust Volume">
+
+              <!-- Volume Up -->
+              <button id="volumeUpBtn" class="w-6 h-6 rounded-full hover:bg-white/10 flex items-center justify-center text-pink-300 hover:text-white transition-colors" title="Volume Up">
+                <i data-lucide="plus" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Letter Body Text -->
-      <div class="py-6 space-y-4 text-purple-950/90 leading-relaxed text-sm sm:text-base font-normal">
-        <p class="font-medium text-pink-900">
-          Dearest Mommy,
-        </p>
+      <!-- Letter Content Section -->
+      <div class="py-6 sm:py-8 space-y-6">
 
-        <p>
-          Happy 14th monthsary! It feels surreal that we have already shared 14 beautiful months together. They say time moves fast when you are happy, but with you, every single day has been filled with comfort, genuine laughter, and memories that I treasure deeply in my heart.
-        </p>
+        <!-- Classic Letter Dateline Header -->
+        <div class="flex items-center justify-between text-xs sm:text-sm text-pink-700/80 pb-2 border-b border-pink-200/60">
+          <span class="flex items-center gap-1.5 font-garamond italic text-sm sm:text-base font-semibold text-pink-900">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-pink-500"></i>
+            <span>September 15, 2026</span>
+          </span>
+          <span class="text-[11px] uppercase tracking-wider font-semibold text-pink-600/80 flex items-center gap-1">
+            <i data-lucide="heart" class="w-3 h-3 fill-pink-400 text-pink-400"></i>
+            <span>14 Months of Us</span>
+          </span>
+        </div>
+        
+        <!-- Letter Paragraphs -->
+        <div class="space-y-4 text-purple-950/90 leading-relaxed text-sm sm:text-base md:text-lg font-normal">
+          <p>
+            <span class="letter-dropcap float-left text-5xl sm:text-6xl font-serif font-bold text-pink-600 mr-3 -mt-1 leading-none drop-shadow-sm select-none">H</span>appy 14th monthsary! It feels surreal that we have already shared 14 beautiful months together. They say time moves fast when you are happy, but with you, every single day has been filled with comfort, genuine laughter, and memories that I treasure deeply in my heart.
+          </p>
 
-        <p>
-          Thank you for being my peace after long days, my favorite conversation at any hour, and the person who understands me effortlessly. Thank you for your warmth, your understanding, your sweet gestures, and the way your presence simply brightens up everything around you.
-        </p>
+          <p>
+            Thank you for being my peace after long days, my favorite conversation at any hour, and the person who understands me effortlessly. Thank you for your warmth, your understanding, your sweet gestures, and the way your presence simply brightens up everything around you.
+          </p>
 
-        <p>
-          Fourteen months is a reminder of how much we have grown together—learning each other's quirks, cheering on each other's small victories, and holding hands through every quiet and noisy chapter. I promise to keep choosing you, loving you more each day, and standing by you through whatever comes our way.
-        </p>
+          <p>
+            Fourteen months is a reminder of how much we have grown together—learning each other's quirks, cheering on each other's small victories, and holding hands through every quiet and noisy chapter. I promise to keep choosing you, loving you more each day, and standing by you through whatever comes our way.
+          </p>
+        </div>
+
 
         <!-- Quote Card Callout inside letter -->
-        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-pink-100/80 via-purple-100/50 to-pink-100/80 border-l-4 border-pink-500 my-6 shadow-sm">
-          <div class="flex items-start gap-3">
-            <i data-lucide="quote" class="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5"></i>
+        <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-pink-100/90 via-purple-100/60 to-pink-100/90 border-l-4 border-pink-500 shadow-sm relative overflow-hidden">
+          <div class="flex items-start gap-4">
+            <i data-lucide="quote" class="w-6 h-6 text-pink-500 flex-shrink-0 mt-0.5"></i>
             <div>
-              <p class="font-serif-display italic text-sm sm:text-base text-purple-950 font-medium leading-snug">
+              <p class="font-serif-display italic text-base sm:text-lg text-purple-950 font-medium leading-relaxed">
                 "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
               </p>
-              <span class="text-xs text-pink-700 font-semibold tracking-wide block mt-1">— Always Yours</span>
+              <span class="text-xs text-pink-700 font-semibold tracking-wide block mt-1.5">— Always Yours</span>
             </div>
           </div>
         </div>
 
-        <!-- 14 Cherished Reasons (Interactive Accordion) -->
-        <div class="pt-3">
-          <div class="flex items-center gap-2 mb-3">
-            <i data-lucide="stars" class="w-4 h-4 text-pink-600"></i>
-            <h3 class="font-serif-display text-lg font-bold text-purple-950">
-              14 Little Things I Cherish About You
-            </h3>
-          </div>
-          <p class="text-xs text-pink-800/70 mb-4">Click each note to read why you mean the world to me:</p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            <!-- Reason 1 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="sun" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>1. Your Radiance</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                The way you brighten my gloomiest days with just a message or your smile.
-              </p>
-            </div>
-
-            <!-- Reason 2 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="smile" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>2. Your Laughter</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                My most treasured melody in this whole world.
-              </p>
-            </div>
-
-            <!-- Reason 3 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="shield" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>3. Your Safe Harbor</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                With you, I can be 100% unapologetically myself.
-              </p>
-            </div>
-
-            <!-- Reason 4 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>4. Your Patience</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                How gently and lovingly you understand and listen to me.
-              </p>
-            </div>
-
-            <!-- Reason 5 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="compass" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>5. Our Shared Dreams</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                Talking about our future plans and building our life together.
-              </p>
-            </div>
-
-            <!-- Reason 6 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="coffee" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>6. Sweet Little Chats</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                Even talking about silly random things makes my day special.
-              </p>
-            </div>
-
-            <!-- Reason 7 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="gem" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>7. Your Pure Heart</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                Your genuine kindness and how tenderly you care for others.
-              </p>
-            </div>
-
-            <!-- Reason 8 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="feather" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>8. Your Gentleness</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                The soothing touch and calmness you bring into my world.
-              </p>
-            </div>
-
-            <!-- Reason 9 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="flame" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>9. The Spark in Us</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                How every butterfly in my stomach feels just as fresh as day one.
-              </p>
-            </div>
-
-            <!-- Reason 10 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="gift" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>10. Your Thoughtfulness</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                Remembering the small things that matter and making me feel so valued.
-              </p>
-            </div>
-
-            <!-- Reason 11 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="sparkle" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>11. Your Prettiest Eyes</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                The spark in your gaze that always melts my heart.
-              </p>
-            </div>
-
-            <!-- Reason 12 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="anchor" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>12. My Constant</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                No matter how chaotic the world gets, you are my steady anchor.
-              </p>
-            </div>
-
-            <!-- Reason 13 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="star" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>13. How You Support Me</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                Always encouraging me to be my best self while loving me as I am.
-              </p>
-            </div>
-
-            <!-- Reason 14 -->
-            <div class="reason-card bg-white/75 p-3 rounded-xl border border-pink-200/80 hover:border-pink-400 transition-all cursor-pointer shadow-xs">
-              <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
-                <span class="flex items-center gap-1.5">
-                  <i data-lucide="infinity" class="w-3.5 h-3.5 text-pink-500"></i>
-                  <span>14. Simply Being You</span>
-                </span>
-                <i data-lucide="chevron-down" class="reason-arrow w-3.5 h-3.5 text-pink-400 transition-transform"></i>
-              </div>
-              <p class="reason-detail hidden text-xs text-purple-800/80 mt-2 pt-2 border-t border-pink-100">
-                Because there is only one of you in this universe, and you are mine.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Polaroid Keepsake Cards -->
-        <div class="pt-6">
-          <div class="flex items-center gap-2 mb-3">
-            <i data-lucide="camera" class="w-4 h-4 text-pink-600"></i>
-            <h3 class="font-serif-display text-lg font-bold text-purple-950">
-              Our Little Keepsake Frames
-            </h3>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+        <!-- Wide Polaroid Keepsake Picture Frames Showcase -->
+        <div class="pt-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
             <!-- Polaroid 1 -->
-            <div class="bg-white p-3 rounded-xl shadow-md border border-pink-200 flex flex-col items-center text-center transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div class="w-full aspect-square rounded-lg bg-gradient-to-tr from-pink-100 to-purple-100 flex flex-col items-center justify-center border border-pink-100 text-pink-500">
-                <i data-lucide="heart" class="w-8 h-8 fill-pink-400 text-pink-400 mb-1"></i>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-700">Memory One</span>
+            <div class="polaroid-card transform -rotate-2 hover:rotate-0 transition-all duration-300">
+              <div class="washi-tape"></div>
+              <div class="polaroid-img-wrapper">
+                <img src="assets/images/us.png" alt="Where our smiles began" class="w-full h-full object-cover">
               </div>
-              <span class="font-garamond italic text-xs text-purple-950 font-semibold mt-2.5">
-                "Where our smiles began"
-              </span>
+              <div class="text-center mt-3">
+                <span class="font-garamond italic text-sm text-purple-950 font-semibold block">
+                  "Where our smiles began"
+                </span>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-600/80 block mt-0.5">
+                  Memory One • Day 1
+                </span>
+              </div>
             </div>
 
             <!-- Polaroid 2 -->
-            <div class="bg-white p-3 rounded-xl shadow-md border border-pink-200 flex flex-col items-center text-center transform rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div class="w-full aspect-square rounded-lg bg-gradient-to-tr from-purple-100 to-pink-100 flex flex-col items-center justify-center border border-pink-100 text-purple-500">
-                <i data-lucide="sparkles" class="w-8 h-8 text-purple-400 mb-1"></i>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-purple-700">Fourteen Months</span>
+            <div class="polaroid-card transform rotate-2 hover:rotate-0 transition-all duration-300">
+              <div class="washi-tape"></div>
+              <div class="polaroid-img-wrapper">
+                <img src="assets/images/Aesthetic Moodboard Heart Shape Frame Photo Collage.png" alt="Endless laughs & sweetness" class="w-full h-full object-cover">
               </div>
-              <span class="font-garamond italic text-xs text-purple-950 font-semibold mt-2.5">
-                "Endless laughs & sweetness"
-              </span>
+              <div class="text-center mt-3">
+                <span class="font-garamond italic text-sm text-purple-950 font-semibold block">
+                  "Endless laughs & sweetness"
+                </span>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-purple-600/80 block mt-0.5">
+                  Fourteen Months
+                </span>
+              </div>
             </div>
 
             <!-- Polaroid 3 -->
-            <div class="bg-white p-3 rounded-xl shadow-md border border-pink-200 flex flex-col items-center text-center transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div class="w-full aspect-square rounded-lg bg-gradient-to-tr from-pink-100 to-purple-100 flex flex-col items-center justify-center border border-pink-100 text-pink-500">
-                <i data-lucide="infinity" class="w-8 h-8 text-pink-500 mb-1"></i>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-700">To Forever</span>
+            <div class="polaroid-card transform -rotate-1 hover:rotate-0 transition-all duration-300">
+              <div class="washi-tape"></div>
+              <div class="polaroid-img-wrapper">
+                <img src="assets/images/us.png" alt="And every month after" class="w-full h-full object-cover object-bottom">
               </div>
-              <span class="font-garamond italic text-xs text-purple-950 font-semibold mt-2.5">
-                "And every month after"
-              </span>
+              <div class="text-center mt-3">
+                <span class="font-garamond italic text-sm text-purple-950 font-semibold block">
+                  "And every month after"
+                </span>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-pink-600/80 block mt-0.5">
+                  To Forever
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Closing Sign-off -->
         <div class="pt-8 text-right border-t border-pink-300/40 mt-6">
-          <p class="font-garamond italic text-base text-purple-900">
-            With all my love, gratitude, and devotion,
+          <p class="font-garamond italic text-base sm:text-lg text-purple-900">
+            Forever and always yours,
           </p>
-          <p class="font-serif-display text-xl font-bold text-pink-700 mt-1">
-            Your Lovelove
+          <p class="font-serif-display text-2xl font-bold text-pink-700 mt-1">
+            CJay
           </p>
 
-          <div class="inline-flex items-center gap-1.5 text-xs text-pink-600/80 mt-2">
-            <i data-lucide="feather" class="w-3.5 h-3.5"></i>
+          <div class="inline-flex items-center gap-2 text-xs text-pink-600/80 mt-2 font-medium">
+            <i data-lucide="feather" class="w-3.5 h-3.5 text-pink-500"></i>
             <span>Sealed on our 14th Monthsary</span>
+            <span class="text-pink-300">•</span>
+            <i data-lucide="calendar-heart" class="w-3.5 h-3.5 text-pink-500"></i>
+            <span>September 15, 2026</span>
           </div>
         </div>
 
@@ -673,8 +540,8 @@
 
       <!-- Bottom action within letter -->
       <div class="pt-5 flex justify-center border-t border-pink-200/70">
-        <button id="foldBackBtn" onclick="document.getElementById('closeLetterBtn').click()" class="px-6 py-2.5 rounded-full bg-pink-100 hover:bg-pink-200 text-purple-950 font-medium text-xs flex items-center gap-2 transition-all shadow-xs">
-          <i data-lucide="archive" class="w-3.5 h-3.5 text-pink-600"></i>
+        <button id="foldBackBtn" onclick="document.getElementById('closeLetterBtn').click()" class="px-7 py-3 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 hover:from-pink-200 hover:to-purple-200 text-purple-950 font-medium text-xs sm:text-sm flex items-center gap-2 transition-all shadow-xs active:scale-95">
+          <i data-lucide="archive" class="w-4 h-4 text-pink-600"></i>
           <span>Fold Letter Back into Envelope</span>
         </button>
       </div>

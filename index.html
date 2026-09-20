@@ -123,7 +123,6 @@
         <h2 class="font-serif-display text-lg font-semibold text-white tracking-wide">
           Happy 14 monthsary lovelove
         </h2>
-        <p class="text-xs text-pink-200/70">Forever & Always | Our Journey</p>
       </div>
     </div>
 
@@ -183,81 +182,65 @@
   <!-- ========================================================================= -->
   <main class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-8">
     
-    <!-- Invitation Header -->
-    <div class="text-center max-w-xl mx-auto mb-8">
-      <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/25 text-xs text-pink-300 mb-3 shadow-inner">
-        <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-pink-400"></i>
-        <span>14 Months of Meaningful Moments</span>
-      </div>
-      <h2 class="font-serif-display text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-3 leading-tight">
-        A Letter From My Heart
-      </h2>
-      <p class="text-sm md:text-base text-pink-200/80 font-light max-w-md mx-auto">
-        Fourteen months by your side and every second still feels like poetry. Tap the wax seal to unfold my letter.
-      </p>
-    </div>
+
 
     <!-- The 3D Realistic Envelope -->
     <div class="envelope-wrapper relative animate-soft-float">
       
-      <!-- Base of envelope: Back wall, inner letter, and front pocket -->
+      <!-- Base of envelope: Back wall, inner letter card, and translucent front pocket -->
       <div class="envelope-base">
-        <!-- Inner Letter tucked neatly inside -->
+        <!-- Inner Letter Card (Partial Letter Excerpt) -->
         <div id="envelopeLetter" class="envelope-inner-letter">
-          <div class="flex items-center justify-center gap-1.5 text-[10px] font-bold text-pink-600 uppercase tracking-widest mb-1.5">
-            <i data-lucide="sparkles" class="w-3 h-3 text-pink-500"></i>
-            <span>14 Months Together</span>
-            <i data-lucide="sparkles" class="w-3 h-3 text-pink-500"></i>
+          <div class="h-full flex flex-col justify-between p-4 sm:p-5 font-garamond text-[13px] sm:text-[14px] leading-relaxed text-purple-950 select-none">
+            <div>
+              <p class="font-bold text-pink-950 font-serif-display text-sm tracking-wide mb-1">
+                Dearest Lovelove,
+              </p>
+              <p class="italic text-purple-950/80 line-clamp-3">
+                Happy 14th monthsary! It feels surreal that we have already shared 14 beautiful months together. Every single day has been filled with comfort, genuine laughter, and memories that I treasure deeply in my heart...
+              </p>
+            </div>
+            
+            <div class="pt-2 border-t border-pink-200/50 flex items-center justify-between text-xs text-pink-800/80">
+              <span class="italic font-garamond text-xs">With all my love, forever & always</span>
+              <span class="text-[10px] font-sans uppercase font-bold tracking-widest text-pink-600 flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3 text-pink-500"></i>
+                <span>Open Letter</span>
+              </span>
+            </div>
           </div>
-          <h3 class="font-serif-display text-sm sm:text-base font-bold text-purple-950 text-center leading-tight">
-            Happy 14 monthsary lovelove
-          </h3>
-          <p class="font-garamond italic text-xs text-pink-800/80 text-center mt-1">
-            "You are my favorite place to go to when my mind searches for peace."
-          </p>
         </div>
 
-        <!-- Front Pocket Fold Layer (SVG) -->
+        <!-- Full Translucent Front Pocket Fold (Vellum Glassmorphism) -->
         <svg viewBox="0 0 440 270" class="w-full h-full absolute inset-0 pointer-events-none z-[3]">
           <defs>
             <clipPath id="pocketCornerClip">
               <rect x="0" y="0" width="440" height="270" rx="18" ry="18" />
             </clipPath>
-            <linearGradient id="sideFoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#2a093a" />
-              <stop offset="100%" stop-color="#1d0629" />
+            <linearGradient id="translucentSideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2a083a" stop-opacity="0.82" />
+              <stop offset="100%" stop-color="#1c0527" stop-opacity="0.82" />
             </linearGradient>
-            <linearGradient id="bottomFoldGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-              <stop offset="0%" stop-color="#240733" />
-              <stop offset="50%" stop-color="#340e4a" />
-              <stop offset="100%" stop-color="#3e1258" />
+            <linearGradient id="translucentBottomGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#260734" stop-opacity="0.88" />
+              <stop offset="60%" stop-color="#380e4f" stop-opacity="0.76" />
+              <stop offset="100%" stop-color="#461263" stop-opacity="0.70" />
             </linearGradient>
           </defs>
           <g clip-path="url(#pocketCornerClip)">
-            <!-- Left Flap Fold -->
-            <path d="M 0 0 L 220 135 L 0 270 Z" fill="url(#sideFoldGrad)" opacity="0.95" />
-            <!-- Right Flap Fold -->
-            <path d="M 440 0 L 220 135 L 440 270 Z" fill="url(#sideFoldGrad)" opacity="0.95" />
-            <!-- Bottom Flap Fold -->
-            <path d="M 0 270 L 220 135 L 440 270 Z" fill="url(#bottomFoldGrad)" stroke="rgba(244, 114, 182, 0.35)" stroke-width="1.2" />
-            <!-- Subtle dashed stitching line on bottom fold -->
-            <path d="M 14 256 L 220 143 L 426 256" fill="none" stroke="rgba(244, 114, 182, 0.22)" stroke-width="1" stroke-dasharray="4 4" />
+            <!-- Left Flap Fold (Translucent) -->
+            <path d="M 0 0 L 220 135 L 0 270 Z" fill="url(#translucentSideGrad)" />
+            <!-- Right Flap Fold (Translucent) -->
+            <path d="M 440 0 L 220 135 L 440 270 Z" fill="url(#translucentSideGrad)" />
+            <!-- Bottom Flap Fold (Translucent with clean hairline stroke) -->
+            <path d="M 0 270 L 220 135 L 440 270 Z" fill="url(#translucentBottomGrad)" stroke="rgba(244, 114, 182, 0.4)" stroke-width="1.2" />
           </g>
         </svg>
-
-        <!-- Lower envelope text over front pocket -->
-        <div class="absolute inset-x-6 bottom-3.5 z-[4] flex items-center justify-between text-xs text-pink-300/85 pointer-events-none">
-          <span class="flex items-center gap-1.5 font-medium text-[11px]">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-pink-400"></i>
-            <span>Special Delivery</span>
-          </span>
-          <span class="font-mono text-[11px] tracking-widest text-pink-300 font-semibold">14 · MONTHS</span>
-        </div>
       </div>
 
       <!-- Top Foldable Flap with matching 18px rounded top corners -->
       <div id="envelopeFlap" class="envelope-flap">
-        <svg viewBox="0 0 440 145" class="w-full h-auto drop-shadow-xl overflow-visible">
+        <svg viewBox="0 0 440 140" class="w-full h-auto drop-shadow-xl overflow-visible">
           <defs>
             <linearGradient id="flapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#3e1359" />
@@ -266,30 +249,23 @@
             </linearGradient>
           </defs>
           <!-- Top flap with matching rounded top-left and top-right corners -->
-          <path d="M 0 18 Q 0 0 18 0 L 422 0 Q 440 0 440 18 L 220 142 Z" fill="url(#flapGrad)" stroke="rgba(244, 114, 182, 0.38)" stroke-width="1.2" />
-          <!-- Inner dashed stitching line on flap -->
-          <path d="M 16 16 L 220 133 L 424 16" fill="none" stroke="rgba(244, 114, 182, 0.25)" stroke-width="1" stroke-dasharray="4 4" />
+          <path d="M 0 18 Q 0 0 18 0 L 422 0 Q 440 0 440 18 L 220 135 Z" fill="url(#flapGrad)" stroke="rgba(244, 114, 182, 0.38)" stroke-width="1.2" />
         </svg>
       </div>
 
-      <!-- Wax Seal Button at exact center vertex -->
+      <!-- Wax Seal Button at flap vertex -->
       <div id="waxSeal" class="wax-seal" title="Break seal to read letter">
         <i data-lucide="heart" class="w-6 h-6 fill-pink-100 text-pink-100"></i>
       </div>
     </div>
 
-    <!-- Alternative Open Letter CTA Button -->
-    <div class="mt-8 flex flex-col items-center gap-3">
-      <button id="openLetterBtn" class="px-7 py-3 rounded-full bg-gradient-to-r from-pink-500 via-pink-600 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium text-sm shadow-lg shadow-pink-500/25 flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95">
+    <!-- Clean Open Letter CTA Button -->
+    <div class="mt-8 flex flex-col items-center">
+      <button id="openLetterBtn" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-pink-600 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium text-sm shadow-lg shadow-pink-500/25 flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95">
         <i data-lucide="mail-open" class="w-4 h-4"></i>
         <span>Read 14th Monthsary Letter</span>
         <i data-lucide="sparkles" class="w-4 h-4 text-pink-200"></i>
       </button>
-
-      <div class="flex items-center gap-2 text-xs text-pink-300/60">
-        <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-        <span>Opening plays our background melody</span>
-      </div>
     </div>
 
   </main>
@@ -300,7 +276,7 @@
   <div id="letterModal" class="fixed inset-0 z-40 bg-[#0d0417]/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-500 items-center justify-center p-3 sm:p-6 overflow-y-auto">
     <div class="letter-parchment w-full max-w-2xl my-auto p-6 sm:p-10 md:p-12 relative shadow-2xl transition-all max-h-[92vh] overflow-y-auto custom-scrollbar border border-pink-200">
       
-      <!-- Top Close / Fold Back Button -->
+      <!-- Top Close Button -->
       <button id="closeLetterBtn" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-pink-100/80 hover:bg-pink-200 text-purple-900 flex items-center justify-center transition-colors shadow-sm" title="Fold back into envelope">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
@@ -629,8 +605,8 @@
       </div>
 
       <!-- Bottom action within letter -->
-      <div class="pt-4 flex justify-center border-t border-pink-200/70">
-        <button id="foldBackBtn" onclick="document.getElementById('closeLetterBtn').click()" class="px-5 py-2.5 rounded-full bg-pink-100 hover:bg-pink-200 text-purple-950 font-medium text-xs flex items-center gap-2 transition-all">
+      <div class="pt-5 flex justify-center border-t border-pink-200/70">
+        <button id="foldBackBtn" onclick="document.getElementById('closeLetterBtn').click()" class="px-6 py-2.5 rounded-full bg-pink-100 hover:bg-pink-200 text-purple-950 font-medium text-xs flex items-center gap-2 transition-all shadow-xs">
           <i data-lucide="archive" class="w-3.5 h-3.5 text-pink-600"></i>
           <span>Fold Letter Back into Envelope</span>
         </button>
@@ -639,13 +615,7 @@
     </div>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- 5. FOOTER                                                                 -->
-  <!-- ========================================================================= -->
-  <footer class="relative z-10 w-full text-center py-4 text-xs text-pink-300/60 flex items-center justify-center gap-2">
-    <span>Crafted with endless devotion</span>
-    <i data-lucide="heart" class="w-3.5 h-3.5 text-pink-400 fill-pink-400"></i>
-    <span>Happy 14 monthsary lovelove</span>
+  <footer class="relative z-10 w-full text-center py-4 text-xs text-pink-300/40">
   </footer>
 
   <!-- Script Initialization -->
